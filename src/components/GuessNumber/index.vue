@@ -23,9 +23,22 @@
             <button
               class="button is-primary"
               :disabled="!guess || guess > 100 || gameover"
+              type="submit"
             >
               Zgaduję
             </button>
+          </div>
+          <div class="field has-addons">
+            <div class="control">
+              <button class="button" @click="handleRestart" type="button">
+                <span class="icon"><i class="fas fa-sync"></i></span>
+              </button>
+            </div>
+            <div class="control">
+              <button class="button" @click="handleShowNumber" type="button">
+                <span class="icon"><i class="fas fa-eye"></i></span>
+              </button>
+            </div>
           </div>
         </div>
       </div>

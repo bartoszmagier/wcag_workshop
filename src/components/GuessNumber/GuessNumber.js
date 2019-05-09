@@ -27,9 +27,12 @@ export default {
     };
   },
   mounted() {
-    this.number = Math.round(Math.random() * 100) + 1;
+    this.setNumber();
   },
   methods: {
+    setNumber() {
+      this.number = Math.round(Math.random() * 100) + 1;
+    },
     handleSubmit() {
       const diff = Math.abs(this.number - this.guess);
       const low = this.number - this.guess < 0;
@@ -54,8 +57,19 @@ export default {
       });
 
       if (this.attempts <= 0) {
-        this.gameover = true;
+        this.handleShowNumber();
       }
+    },
+    handleRestart() {
+      Object.assign(this.$data, this.$options.data());
+      this.setNumber();
+    },
+    handleShowNumber() {
+      this.answers.push({
+        content: `Wylosowana liczba to ${this.number}.`,
+        diff: 0
+      });
+      this.gameover = true;
     }
   }
 };
