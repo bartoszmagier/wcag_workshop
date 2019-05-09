@@ -22,7 +22,7 @@ export default {
       answers: [],
       attempts: 5,
       number: 0,
-      guess: 0,
+      guess: "",
       gameover: false
     };
   },

@@ -1,7 +1,7 @@
 <template>
   <div class="guess box">
-    <h1 class="title has-text-centered">Jaka to liczba?</h1>
-    <p class="content">
+    <h1 class="title has-text-centered" tabindex="0">Jaka to liczba?</h1>
+    <p class="content" tabindex="0">
       Odgadnij liczbę z przedziału od 1 do 100. Masz jeszcze {{ attempts }}
       {{ attempts | pluralize(["próbę", "próby", "próby", "próby", "prób"]) }}.
     </p>
@@ -10,6 +10,7 @@
         <div class="field is-grouped">
           <div class="control is-expanded">
             <input
+              aria-label="Twoja Liczba"
               class="input"
               type="number"
               max="100"
@@ -30,12 +31,22 @@
           </div>
           <div class="field has-addons">
             <div class="control">
-              <button class="button" @click="handleRestart" type="button">
+              <button
+                aria-label="Zrestartuj grę"
+                class="button"
+                @click="handleRestart"
+                type="button"
+              >
                 <span class="icon"><i class="fas fa-sync"></i></span>
               </button>
             </div>
             <div class="control">
-              <button class="button" @click="handleShowNumber" type="button">
+              <button
+                aria-label="Pokaż wylosowaną liczbę"
+                class="button"
+                @click="handleShowNumber"
+                type="button"
+              >
                 <span class="icon"><i class="fas fa-eye"></i></span>
               </button>
             </div>
@@ -54,6 +65,7 @@
           'is-info': answer.diff >= 11 && answer.diff <= 50,
           'is-link': answer.diff >= 51
         }"
+        tabindex="0"
       >
         {{ answer.content }}
       </div>
