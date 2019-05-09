@@ -1,8 +1,9 @@
 import Vue from "vue";
-import App from "./App.vue";
+import GuessNumber from "@/components/GuessNumber";
+import "bulma";
 
 Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(App)
+  render: h => h(GuessNumber)
 }).$mount("#app");
