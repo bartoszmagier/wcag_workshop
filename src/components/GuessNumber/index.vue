@@ -54,7 +54,7 @@
         </div>
       </div>
     </form>
-    <div class="attempts">
+    <div class="attempts" aria-live="assertive">
       <div
         class="notification"
         v-for="(answer, index) in answers"
